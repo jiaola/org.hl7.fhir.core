@@ -3228,7 +3228,11 @@ into another (possibly the same) biological entity.
         /**
          * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
          */
-        CLINICALIMPRESSION, 
+        CLINICALIMPRESSION,
+        /**
+         * Clinical Profiles summarize and demonstrate the features of a population.
+         */
+        CLINICALPROFILE,
         /**
          * The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
          */
@@ -3662,7 +3666,11 @@ The primary difference between a medication statement and a medication administr
         /**
          * A kind of specimen with associated set of requirements.
          */
-        SPECIMENDEFINITION, 
+        SPECIMENDEFINITION,
+        /**
+         * The Statistic resource codifies a statistical measure and corresponding certainty.
+         */
+        STATISTIC,
         /**
          * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
          */
@@ -3922,6 +3930,8 @@ The primary difference between a medication statement and a medication administr
           return CLAIMRESPONSE;
         if ("ClinicalImpression".equals(codeString))
           return CLINICALIMPRESSION;
+        if ("ClinicalProfile".equals(codeString))
+          return CLINICALPROFILE;
         if ("CodeSystem".equals(codeString))
           return CODESYSTEM;
         if ("Communication".equals(codeString))
@@ -4138,6 +4148,8 @@ The primary difference between a medication statement and a medication administr
           return SPECIMEN;
         if ("SpecimenDefinition".equals(codeString))
           return SPECIMENDEFINITION;
+        if ("Statistic".equals(codeString))
+          return STATISTIC;
         if ("StructureDefinition".equals(codeString))
           return STRUCTUREDEFINITION;
         if ("StructureMap".equals(codeString))
@@ -4268,6 +4280,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
+            case CLINICALPROFILE: return "ClinicalProfile";
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
             case COMMUNICATIONREQUEST: return "CommunicationRequest";
@@ -4376,6 +4389,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case SPECIMENDEFINITION: return "SpecimenDefinition";
+            case STATISTIC: return "Statistic";
             case STRUCTUREDEFINITION: return "StructureDefinition";
             case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
@@ -4486,6 +4500,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
+            case CLINICALPROFILE: return "http://hl7.org/fhir/resource-types";
             case CODESYSTEM: return "http://hl7.org/fhir/resource-types";
             case COMMUNICATION: return "http://hl7.org/fhir/resource-types";
             case COMMUNICATIONREQUEST: return "http://hl7.org/fhir/resource-types";
@@ -4594,6 +4609,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
             case SPECIMENDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case STATISTIC: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREDEFINITION: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREMAP: return "http://hl7.org/fhir/resource-types";
             case SUBSCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -4704,6 +4720,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
+            case CLINICALPROFILE: return "Clinical Profiles summarize and demonstrate the features of a population.";
             case CODESYSTEM: return "The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.";
             case COMMUNICATION: return "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency that was notified about a reportable condition.";
             case COMMUNICATIONREQUEST: return "A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
@@ -4812,6 +4829,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case SPECIMENDEFINITION: return "A kind of specimen with associated set of requirements.";
+            case STATISTIC: return "The Statistic resource codifies a statistical measure and corresponding certainty.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.";
             case STRUCTUREMAP: return "A Map of relationships between 2 structures that can be used to transform data.";
             case SUBSCRIPTION: return "The subscription resource is used to define a push-based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined \"channel\" so that another system can take an appropriate action.";
@@ -4922,6 +4940,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
+            case CLINICALPROFILE: return "ClinicalProfile";
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
             case COMMUNICATIONREQUEST: return "CommunicationRequest";
@@ -5030,6 +5049,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case SPECIMENDEFINITION: return "SpecimenDefinition";
+            case STATISTIC: return "Statistic";
             case STRUCTUREDEFINITION: return "StructureDefinition";
             case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
@@ -5229,6 +5249,8 @@ The primary difference between a medication statement and a medication administr
           return FHIRAllTypes.CLAIMRESPONSE;
         if ("ClinicalImpression".equals(codeString))
           return FHIRAllTypes.CLINICALIMPRESSION;
+        if ("ClinicalProfile".equals(codeString))
+          return FHIRAllTypes.CLINICALPROFILE;
         if ("CodeSystem".equals(codeString))
           return FHIRAllTypes.CODESYSTEM;
         if ("Communication".equals(codeString))
@@ -5445,6 +5467,8 @@ The primary difference between a medication statement and a medication administr
           return FHIRAllTypes.SPECIMEN;
         if ("SpecimenDefinition".equals(codeString))
           return FHIRAllTypes.SPECIMENDEFINITION;
+        if ("Statistic".equals(codeString))
+          return FHIRAllTypes.STATISTIC;
         if ("StructureDefinition".equals(codeString))
           return FHIRAllTypes.STRUCTUREDEFINITION;
         if ("StructureMap".equals(codeString))
@@ -5665,6 +5689,8 @@ The primary difference between a medication statement and a medication administr
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CLAIMRESPONSE);
         if ("ClinicalImpression".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CLINICALIMPRESSION);
+        if("ClinicalProfile".equals(codeString))
+          return new Enumeration<FHIRAllTypes>( this, FHIRAllTypes.CLINICALPROFILE);
         if ("CodeSystem".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CODESYSTEM);
         if ("Communication".equals(codeString))
@@ -5881,6 +5907,8 @@ The primary difference between a medication statement and a medication administr
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SPECIMEN);
         if ("SpecimenDefinition".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SPECIMENDEFINITION);
+        if ("Statistic".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.STATISTIC);
         if ("StructureDefinition".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.STRUCTUREDEFINITION);
         if ("StructureMap".equals(codeString))
@@ -6094,6 +6122,8 @@ The primary difference between a medication statement and a medication administr
         return "ClaimResponse";
       if (code == FHIRAllTypes.CLINICALIMPRESSION)
         return "ClinicalImpression";
+      if (code == FHIRAllTypes.CLINICALPROFILE)
+        return "ClinicalProfile";
       if (code == FHIRAllTypes.CODESYSTEM)
         return "CodeSystem";
       if (code == FHIRAllTypes.COMMUNICATION)
@@ -6310,6 +6340,8 @@ The primary difference between a medication statement and a medication administr
         return "Specimen";
       if (code == FHIRAllTypes.SPECIMENDEFINITION)
         return "SpecimenDefinition";
+      if (code == FHIRAllTypes.STATISTIC)
+        return "Statistic";
       if (code == FHIRAllTypes.STRUCTUREDEFINITION)
         return "StructureDefinition";
       if (code == FHIRAllTypes.STRUCTUREMAP)
@@ -6696,7 +6728,11 @@ into another (possibly the same) biological entity.
         /**
          * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
          */
-        CLINICALIMPRESSION, 
+        CLINICALIMPRESSION,
+        /**
+         * Clinical Profiles summarize and demonstrate the features of a population.
+         */
+        CLINICALPROFILE,
         /**
          * The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
          */
@@ -7130,7 +7166,11 @@ The primary difference between a medication statement and a medication administr
         /**
          * A kind of specimen with associated set of requirements.
          */
-        SPECIMENDEFINITION, 
+        SPECIMENDEFINITION,
+        /**
+         * The Statistic resource codifies a statistical measure and corresponding certainty.
+         */
+        STATISTIC,
         /**
          * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
          */
@@ -7382,6 +7422,8 @@ The primary difference between a medication statement and a medication administr
           return CLAIMRESPONSE;
         if ("ClinicalImpression".equals(codeString))
           return CLINICALIMPRESSION;
+        if ("ClinicalProfile".equals(codeString))
+          return CLINICALPROFILE;
         if ("CodeSystem".equals(codeString))
           return CODESYSTEM;
         if ("Communication".equals(codeString))
@@ -7598,6 +7640,8 @@ The primary difference between a medication statement and a medication administr
           return SPECIMEN;
         if ("SpecimenDefinition".equals(codeString))
           return SPECIMENDEFINITION;
+        if ("Statistic".equals(codeString))
+          return STATISTIC;
         if ("StructureDefinition".equals(codeString))
           return STRUCTUREDEFINITION;
         if ("StructureMap".equals(codeString))
@@ -7724,6 +7768,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
+            case CLINICALPROFILE: return "ClinicalProfile";
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
             case COMMUNICATIONREQUEST: return "CommunicationRequest";
@@ -7832,6 +7877,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case SPECIMENDEFINITION: return "SpecimenDefinition";
+            case STATISTIC: return "Statistic";
             case STRUCTUREDEFINITION: return "StructureDefinition";
             case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
@@ -7940,6 +7986,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
+            case CLINICALPROFILE: return "http://hl7.org/fhir/resource-types";
             case CODESYSTEM: return "http://hl7.org/fhir/resource-types";
             case COMMUNICATION: return "http://hl7.org/fhir/resource-types";
             case COMMUNICATIONREQUEST: return "http://hl7.org/fhir/resource-types";
@@ -8048,6 +8095,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
             case SPECIMENDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case STATISTIC: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREDEFINITION: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREMAP: return "http://hl7.org/fhir/resource-types";
             case SUBSCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -8156,6 +8204,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
+            case CLINICALPROFILE: return "Clinical Profiles summarize and demonstrate the features of a population.";
             case CODESYSTEM: return "The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.";
             case COMMUNICATION: return "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency that was notified about a reportable condition.";
             case COMMUNICATIONREQUEST: return "A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
@@ -8372,6 +8421,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
+            case CLINICALPROFILE: return "ClinicalProfile";
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
             case COMMUNICATIONREQUEST: return "CommunicationRequest";
@@ -8480,6 +8530,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case SPECIMENDEFINITION: return "SpecimenDefinition";
+            case STATISTIC: return "Statistic";
             case STRUCTUREDEFINITION: return "StructureDefinition";
             case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
@@ -8677,6 +8728,8 @@ The primary difference between a medication statement and a medication administr
           return FHIRDefinedType.CLAIMRESPONSE;
         if ("ClinicalImpression".equals(codeString))
           return FHIRDefinedType.CLINICALIMPRESSION;
+        if ("ClinicalProfile".equals(codeString))
+          return FHIRDefinedType.CLINICALPROFILE;
         if ("CodeSystem".equals(codeString))
           return FHIRDefinedType.CODESYSTEM;
         if ("Communication".equals(codeString))
@@ -9109,6 +9162,8 @@ The primary difference between a medication statement and a medication administr
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CLAIMRESPONSE);
         if ("ClinicalImpression".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CLINICALIMPRESSION);
+        if ("ClinicalProfile".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CLINICALPROFILE);
         if ("CodeSystem".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CODESYSTEM);
         if ("Communication".equals(codeString))
@@ -9534,6 +9589,8 @@ The primary difference between a medication statement and a medication administr
         return "ClaimResponse";
       if (code == FHIRDefinedType.CLINICALIMPRESSION)
         return "ClinicalImpression";
+      if (code == FHIRDefinedType.CLINICALPROFILE)
+        return "ClinicalProfile";
       if (code == FHIRDefinedType.CODESYSTEM)
         return "CodeSystem";
       if (code == FHIRDefinedType.COMMUNICATION)
@@ -11250,7 +11307,11 @@ into another (possibly the same) biological entity.
         /**
          * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
          */
-        CLINICALIMPRESSION, 
+        CLINICALIMPRESSION,
+        /**
+         * Clinical Profiles summarize and de monstrate the features of a population.
+         */
+        CLINICALPROFILE,
         /**
          * The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
          */
@@ -11684,7 +11745,11 @@ The primary difference between a medication statement and a medication administr
         /**
          * A kind of specimen with associated set of requirements.
          */
-        SPECIMENDEFINITION, 
+        SPECIMENDEFINITION,
+        /**
+         * The Statistic resource codifies a statistical measure and corresponding certainty.
+         */
+        STATISTIC,
         /**
          * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
          */
@@ -11810,6 +11875,8 @@ The primary difference between a medication statement and a medication administr
           return CLAIMRESPONSE;
         if ("ClinicalImpression".equals(codeString))
           return CLINICALIMPRESSION;
+        if ("ClinicalProfile".equals(codeString))
+          return CLINICALPROFILE;
         if ("CodeSystem".equals(codeString))
           return CODESYSTEM;
         if ("Communication".equals(codeString))
@@ -12026,6 +12093,9 @@ The primary difference between a medication statement and a medication administr
           return SPECIMEN;
         if ("SpecimenDefinition".equals(codeString))
           return SPECIMENDEFINITION;
+        if ("Statistic".equals(codeString)) {
+          return STATISTIC;
+        }
         if ("StructureDefinition".equals(codeString))
           return STRUCTUREDEFINITION;
         if ("StructureMap".equals(codeString))
@@ -12089,6 +12159,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
+            case CLINICALPROFILE: return "ClinicalProfile";
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
             case COMMUNICATIONREQUEST: return "CommunicationRequest";
@@ -12197,6 +12268,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case SPECIMENDEFINITION: return "SpecimenDefinition";
+            case STATISTIC: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREDEFINITION: return "StructureDefinition";
             case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
@@ -12242,6 +12314,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
+            case CLINICALPROFILE: return "http://hl7.org/fhir/resource-types";
             case CODESYSTEM: return "http://hl7.org/fhir/resource-types";
             case COMMUNICATION: return "http://hl7.org/fhir/resource-types";
             case COMMUNICATIONREQUEST: return "http://hl7.org/fhir/resource-types";
@@ -12350,6 +12423,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
             case SPECIMENDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case STATISTIC: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREDEFINITION: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREMAP: return "http://hl7.org/fhir/resource-types";
             case SUBSCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -12395,6 +12469,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
+            case CLINICALPROFILE: return "Clinical Profiles summarize and demonstrate the features of a population.";
             case CODESYSTEM: return "The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.";
             case COMMUNICATION: return "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency that was notified about a reportable condition.";
             case COMMUNICATIONREQUEST: return "A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
@@ -12503,6 +12578,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case SPECIMENDEFINITION: return "A kind of specimen with associated set of requirements.";
+            case STATISTIC: return "The Statistic resource codifies a statistical measure and corresponding certainty.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.";
             case STRUCTUREMAP: return "A Map of relationships between 2 structures that can be used to transform data.";
             case SUBSCRIPTION: return "The subscription resource is used to define a push-based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined \"channel\" so that another system can take an appropriate action.";
@@ -12548,6 +12624,7 @@ The primary difference between a medication statement and a medication administr
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
+            case CLINICALPROFILE: return "ClinicalProfile";
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
             case COMMUNICATIONREQUEST: return "CommunicationRequest";
@@ -12656,6 +12733,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case SPECIMENDEFINITION: return "SpecimenDefinition";
+            case STATISTIC: return "Statistic";
             case STRUCTUREDEFINITION: return "StructureDefinition";
             case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
@@ -12727,6 +12805,8 @@ The primary difference between a medication statement and a medication administr
           return ResourceType.CLAIMRESPONSE;
         if ("ClinicalImpression".equals(codeString))
           return ResourceType.CLINICALIMPRESSION;
+        if ("ClinicalProfile".equals(codeString))
+          return ResourceType.CLINICALPROFILE;
         if ("CodeSystem".equals(codeString))
           return ResourceType.CODESYSTEM;
         if ("Communication".equals(codeString))
@@ -12943,6 +13023,8 @@ The primary difference between a medication statement and a medication administr
           return ResourceType.SPECIMEN;
         if ("SpecimenDefinition".equals(codeString))
           return ResourceType.SPECIMENDEFINITION;
+        if ("Statistic".equals(codeString))
+          return ResourceType.STATISTIC;
         if ("StructureDefinition".equals(codeString))
           return ResourceType.STRUCTUREDEFINITION;
         if ("StructureMap".equals(codeString))
@@ -13033,6 +13115,8 @@ The primary difference between a medication statement and a medication administr
           return new Enumeration<ResourceType>(this, ResourceType.CLAIMRESPONSE);
         if ("ClinicalImpression".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CLINICALIMPRESSION);
+        if ("ClinicalProfile".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.CLINICALPROFILE);
         if ("CodeSystem".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CODESYSTEM);
         if ("Communication".equals(codeString))
@@ -13249,6 +13333,8 @@ The primary difference between a medication statement and a medication administr
           return new Enumeration<ResourceType>(this, ResourceType.SPECIMEN);
         if ("SpecimenDefinition".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.SPECIMENDEFINITION);
+        if ("Statistic".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.STATISTIC);
         if ("StructureDefinition".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.STRUCTUREDEFINITION);
         if ("StructureMap".equals(codeString))
@@ -13332,6 +13418,8 @@ The primary difference between a medication statement and a medication administr
         return "ClaimResponse";
       if (code == ResourceType.CLINICALIMPRESSION)
         return "ClinicalImpression";
+      if (code == ResourceType.CLINICALPROFILE)
+        return "ClinicalProfile";
       if (code == ResourceType.CODESYSTEM)
         return "CodeSystem";
       if (code == ResourceType.COMMUNICATION)
@@ -13548,6 +13636,8 @@ The primary difference between a medication statement and a medication administr
         return "Specimen";
       if (code == ResourceType.SPECIMENDEFINITION)
         return "SpecimenDefinition";
+      if (code == ResourceType.STATISTIC)
+        return "Statistic";
       if (code == ResourceType.STRUCTUREDEFINITION)
         return "StructureDefinition";
       if (code == ResourceType.STRUCTUREMAP)

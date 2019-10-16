@@ -571,7 +571,7 @@ The primary difference between a medicationusage and a medicationadministration 
         /**
          * A kind of specimen with associated set of requirements.
          */
-        SPECIMENDEFINITION, 
+        SPECIMENDEFINITION,
         /**
          * The Statistic resource codifies a statistical measure and corresponding certainty.
          */

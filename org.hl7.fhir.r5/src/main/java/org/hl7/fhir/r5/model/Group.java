@@ -50,18 +50,13 @@ package org.hl7.fhir.r5.model;
 */
 
 // Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
-import java.util.ArrayList;
-import java.util.List;
-
+import ca.uhn.fhir.model.api.annotation.*;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
 import org.hl7.fhir.utilities.Utilities;
 
-import ca.uhn.fhir.model.api.annotation.Block;
-import ca.uhn.fhir.model.api.annotation.Child;
-import ca.uhn.fhir.model.api.annotation.Description;
-import ca.uhn.fhir.model.api.annotation.ResourceDef;
-import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
  */
@@ -236,7 +231,7 @@ public class Group extends DomainResource {
         /**
          * The value of the trait that holds (or does not hold - see 'exclude') for members of the group.
          */
-        @Child(name = "value", type = {CodeableConcept.class, BooleanType.class, Quantity.class, Range.class, Reference.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {CodeableConcept.class, BooleanType.class, Quantity.class, Range.class, Group.class, ValueSet.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Value held by characteristic", formalDefinition="The value of the trait that holds (or does not hold - see 'exclude') for members of the group." )
         protected Type value;
 
@@ -465,7 +460,7 @@ public class Group extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("code", "CodeableConcept", "A code that identifies the kind of trait being asserted.", 0, 1, code));
-          children.add(new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value));
+          children.add(new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference(Group|ValueSet)", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value));
           children.add(new Property("exclude", "boolean", "If true, indicates the characteristic is one that is NOT held by members of the group.", 0, 1, exclude));
           children.add(new Property("period", "Period", "The period over which the characteristic is tested; e.g. the patient had an operation during the month of June.", 0, 1, period));
         }
@@ -474,13 +469,13 @@ public class Group extends DomainResource {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that identifies the kind of trait being asserted.", 0, 1, code);
-          case -1410166417: /*value[x]*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
-          case 111972721: /*value*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
-          case 924902896: /*valueCodeableConcept*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
-          case 733421943: /*valueBoolean*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
-          case -2029823716: /*valueQuantity*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
-          case 2030761548: /*valueRange*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
-          case 1755241690: /*valueReference*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
+          case -1410166417: /*value[x]*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference(Group|ValueSet)", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
+          case 111972721: /*value*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference(Group|ValueSet)", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
+          case 924902896: /*valueCodeableConcept*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference(Group|ValueSet)", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
+          case 733421943: /*valueBoolean*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference(Group|ValueSet)", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
+          case -2029823716: /*valueQuantity*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference(Group|ValueSet)", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
+          case 2030761548: /*valueRange*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference(Group|ValueSet)", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
+          case 1755241690: /*valueReference*/  return new Property("value[x]", "CodeableConcept|boolean|Quantity|Range|Reference(Group|ValueSet)", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, 1, value);
           case -1321148966: /*exclude*/  return new Property("exclude", "boolean", "If true, indicates the characteristic is one that is NOT held by members of the group.", 0, 1, exclude);
           case -991726143: /*period*/  return new Property("period", "Period", "The period over which the characteristic is tested; e.g. the patient had an operation during the month of June.", 0, 1, period);
           default: return super.getNamedProperty(_hash, _name, _checkValid);

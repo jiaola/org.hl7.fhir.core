@@ -47,6 +47,7 @@ public enum ResourceType {
     Claim,
     ClaimResponse,
     ClinicalImpression,
+    ClinicalProfile,
     CodeSystem,
     Communication,
     CommunicationRequest,
@@ -153,6 +154,7 @@ public enum ResourceType {
     Slot,
     Specimen,
     SpecimenDefinition,
+    Statistic,
     StructureDefinition,
     StructureMap,
     Subscription,
@@ -218,6 +220,8 @@ public enum ResourceType {
       return "claimresponse";
     case ClinicalImpression:
       return "clinicalimpression";
+    case ClinicalProfile:
+      return "clinicalprofile";
     case CodeSystem:
       return "codesystem";
     case Communication:
@@ -430,6 +434,8 @@ public enum ResourceType {
       return "specimen";
     case SpecimenDefinition:
       return "specimendefinition";
+    case Statistic:
+      return "statistic";
     case StructureDefinition:
       return "structuredefinition";
     case StructureMap:
@@ -516,6 +522,8 @@ public enum ResourceType {
       return ClaimResponse;
     if ("ClinicalImpression".equals(code))
       return ClinicalImpression;
+    if ("ClinicalProfile".equals(code))
+      return ClinicalProfile;
     if ("CodeSystem".equals(code))
       return CodeSystem;
     if ("Communication".equals(code))
@@ -728,6 +736,8 @@ public enum ResourceType {
       return Specimen;
     if ("SpecimenDefinition".equals(code))
       return SpecimenDefinition;
+    if ("Statistic".equals(code))
+      return Statistic;
     if ("StructureDefinition".equals(code))
       return StructureDefinition;
     if ("StructureMap".equals(code))

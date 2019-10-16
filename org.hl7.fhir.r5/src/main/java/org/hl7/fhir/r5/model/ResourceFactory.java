@@ -349,6 +349,10 @@ public class ResourceFactory extends Factory {
             return new Claim();
         if ("Location".equals(name))
             return new Location();
+        if ("ClinicalProfile".equals(name))
+          return new ClinicalProfile();
+        if ("Statistic".equals(name))
+          return new Statistic();
         else
             throw new FHIRException("Unknown Resource Name '"+name+"'");
     }
@@ -505,6 +509,7 @@ public class ResourceFactory extends Factory {
         case 65189916: return new Claim();
         case 1488475261: return new ClaimResponse();
         case -1268501092: return new ClinicalImpression();
+        case -872888586: return new ClinicalProfile();
         case 1076953756: return new CodeSystem();
         case -1153521791: return new CodeableConcept();
         case 2023747466: return new Coding();
@@ -644,6 +649,7 @@ public class ResourceFactory extends Factory {
         case 2579998: return new Slot();
         case -2068224216: return new Specimen();
         case 863741595: return new SpecimenDefinition();
+        case -77293264: return new Statistic();
         case 1133777670: return new StructureDefinition();
         case 1958247177: return new StructureMap();
         case 505523517: return new Subscription();

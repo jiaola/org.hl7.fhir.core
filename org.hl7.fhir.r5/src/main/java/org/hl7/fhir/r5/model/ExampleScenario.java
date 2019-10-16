@@ -50,22 +50,16 @@ package org.hl7.fhir.r5.model;
 */
 
 // Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
+import ca.uhn.fhir.model.api.annotation.*;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
 import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r5.model.Enumerations.PublicationStatusEnumFactory;
 import org.hl7.fhir.utilities.Utilities;
 
-import ca.uhn.fhir.model.api.annotation.Block;
-import ca.uhn.fhir.model.api.annotation.Child;
-import ca.uhn.fhir.model.api.annotation.ChildOrder;
-import ca.uhn.fhir.model.api.annotation.Description;
-import ca.uhn.fhir.model.api.annotation.ResourceDef;
-import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 /**
  * Example of workflow instance.
  */
@@ -684,7 +678,11 @@ The primary difference between a medication statement and a medication administr
         /**
          * A kind of specimen with associated set of requirements.
          */
-        SPECIMENDEFINITION, 
+        SPECIMENDEFINITION,
+        /**
+         * The Statistic resource codifies a statistical measure and corresponding certainty.
+         */
+        STATISTIC,
         /**
          * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
          */
@@ -1026,6 +1024,8 @@ The primary difference between a medication statement and a medication administr
           return SPECIMEN;
         if ("SpecimenDefinition".equals(codeString))
           return SPECIMENDEFINITION;
+        if ("Statistic".equals(codeString))
+            return STATISTIC;
         if ("StructureDefinition".equals(codeString))
           return STRUCTUREDEFINITION;
         if ("StructureMap".equals(codeString))
@@ -1200,6 +1200,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case SPECIMENDEFINITION: return "SpecimenDefinition";
+            case STATISTIC: return "Statistic";
             case STRUCTUREDEFINITION: return "StructureDefinition";
             case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
@@ -1353,6 +1354,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
             case SPECIMENDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case STATISTIC: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREDEFINITION: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREMAP: return "http://hl7.org/fhir/resource-types";
             case SUBSCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -1506,6 +1508,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case SPECIMENDEFINITION: return "A kind of specimen with associated set of requirements.";
+            case STATISTIC: return "The Statistic resource codifies a statistical measure and corresponding certainty.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.";
             case STRUCTUREMAP: return "A Map of relationships between 2 structures that can be used to transform data.";
             case SUBSCRIPTION: return "The subscription resource is used to define a push-based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined \"channel\" so that another system can take an appropriate action.";
@@ -1659,6 +1662,7 @@ The primary difference between a medication statement and a medication administr
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case SPECIMENDEFINITION: return "SpecimenDefinition";
+            case STATISTIC: return "Statistic";
             case STRUCTUREDEFINITION: return "StructureDefinition";
             case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
@@ -1946,6 +1950,8 @@ The primary difference between a medication statement and a medication administr
           return FHIRResourceType.SPECIMEN;
         if ("SpecimenDefinition".equals(codeString))
           return FHIRResourceType.SPECIMENDEFINITION;
+        if ("Statistic".equals(codeString))
+          return FHIRResourceType.STATISTIC;
         if ("StructureDefinition".equals(codeString))
           return FHIRResourceType.STRUCTUREDEFINITION;
         if ("StructureMap".equals(codeString))
@@ -2252,6 +2258,8 @@ The primary difference between a medication statement and a medication administr
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.SPECIMEN);
         if ("SpecimenDefinition".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.SPECIMENDEFINITION);
+        if ("Statistic".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.STATISTIC);
         if ("StructureDefinition".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.STRUCTUREDEFINITION);
         if ("StructureMap".equals(codeString))
@@ -2551,6 +2559,8 @@ The primary difference between a medication statement and a medication administr
         return "Specimen";
       if (code == FHIRResourceType.SPECIMENDEFINITION)
         return "SpecimenDefinition";
+      if (code == FHIRResourceType.STATISTIC)
+        return "Statistic";
       if (code == FHIRResourceType.STRUCTUREDEFINITION)
         return "StructureDefinition";
       if (code == FHIRResourceType.STRUCTUREMAP)
