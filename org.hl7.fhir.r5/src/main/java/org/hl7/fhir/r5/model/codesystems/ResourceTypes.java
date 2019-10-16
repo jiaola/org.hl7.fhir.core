@@ -145,7 +145,11 @@ into another (possibly the same) biological entity.
         /**
          * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
          */
-        CLINICALIMPRESSION, 
+        CLINICALIMPRESSION,
+        /**
+         * Clinical Profiles summarize and demonstrate the features of a population.
+         */
+        CLINICALPROFILE,
         /**
          * A single item of clinical particulars - an indication, contraindication, interaction etc. for a medicinal product.
          */
@@ -703,6 +707,8 @@ The primary difference between a medicationusage and a medicationadministration 
           return CLAIMRESPONSE;
         if ("ClinicalImpression".equals(codeString))
           return CLINICALIMPRESSION;
+        if ("ClinicalProfile".equals(codeString))
+          return CLINICALPROFILE;
         if ("ClinicalUseIssue".equals(codeString))
           return CLINICALUSEISSUE;
         if ("CodeSystem".equals(codeString))
@@ -981,6 +987,7 @@ The primary difference between a medicationusage and a medicationadministration 
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
+            case CLINICALPROFILE: return "ClinicalProfile";
             case CLINICALUSEISSUE: return "ClinicalUseIssue";
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
@@ -1137,6 +1144,7 @@ The primary difference between a medicationusage and a medicationadministration 
             case CLAIM: return "A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
+            case CLINICALPROFILE: return "Clinical Profiles summarize and demonstrate the features of a population.";
             case CLINICALUSEISSUE: return "A single item of clinical particulars - an indication, contraindication, interaction etc. for a medicinal product.";
             case CODESYSTEM: return "The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.";
             case COMMUNICATION: return "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency communication to a provider/reporter in response to a case report for a reportable condition.";
@@ -1290,6 +1298,7 @@ The primary difference between a medicationusage and a medicationadministration 
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
+            case CLINICALPROFILE: return "ClinicalProfile";
             case CLINICALUSEISSUE: return "ClinicalUseIssue";
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
